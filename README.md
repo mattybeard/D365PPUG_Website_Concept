@@ -81,7 +81,7 @@ A production contact service, CMS, full event archive, live event updates, atten
 
 1. Put the project in a GitHub repository with `main` as the default branch, or edit the workflow branch filters.
 2. Create an Azure Static Web Apps resource. Avoid adding a second competing deployment workflow.
-3. Store its deployment token in the GitHub secret `AZURE_STATIC_WEB_APPS_API_TOKEN`.
+3. Store its deployment token in the GitHub secret `AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_GLACIER_0DFE38D0F`, which the workflow references. If Azure creates a different secret name, update the workflow to match.
 4. Run the workflow manually or push to `main`.
 5. Add and verify `www.d365ppug.com` in the Azure portal. Configure its DNS records using Azure's instructions. Configure the apex domain and preferred-host redirect if required.
 6. Review the privacy policy, content, contact-demo notice, and live deployment before changing production DNS.
