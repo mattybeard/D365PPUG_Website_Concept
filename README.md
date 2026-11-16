@@ -82,12 +82,12 @@ A production contact service, CMS, full event archive, live event updates, atten
 1. Put the project in a GitHub repository with `main` as the default branch, or edit the workflow branch filters.
 2. Create an Azure Static Web Apps resource. Avoid adding a second competing deployment workflow.
 3. Store its deployment token in the GitHub secret `AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_GLACIER_0DFE38D0F`, which the workflow references. If Azure creates a different secret name, update the workflow to match.
-   The existing resource uses the GitHub deployment authentication policy. The workflow also passes a GitHub OpenID Connect identity token for production deployments.
+   The existing resource uses the GitHub deployment authentication policy. The workflow also passes a GitHub OpenID Connect identity token for production deployments. Keep Azure's generated workflow filename because Azure uses it to identify the resource.
 4. Run the workflow manually or push to `main`.
 5. Add and verify `www.d365ppug.com` in the Azure portal. Configure its DNS records using Azure's instructions. Configure the apex domain and preferred-host redirect if required.
 6. Review the privacy policy, content, contact-demo notice, and live deployment before changing production DNS.
 
-The [GitHub Actions workflow](.github/workflows/azure-static-web-apps.yml) installs dependencies from the lockfile, runs unit tests, performs a fresh scrape and production build, checks output and size budgets, and runs browser tests. It uploads `dist` with Azure's build step disabled. Pull requests validate and produce a downloadable build artifact but do not deploy previews or use deployment credentials.
+The [GitHub Actions workflow](.github/workflows/azure-static-web-apps-salmon-glacier-0dfe38d0f.yml) installs dependencies from the lockfile, runs unit tests, performs a fresh scrape and production build, checks output and size budgets, and runs browser tests. It uploads `dist` with Azure's build step disabled. Pull requests validate and produce a downloadable build artifact but do not deploy previews or use deployment credentials.
 
 Manual dispatch is enabled. To schedule refreshes, uncomment and set the `schedule` block in the workflow. The sample cron runs daily at 06:00 UTC. GitHub schedules run on the default branch and may be delayed. No schedule is enabled by default.
 
