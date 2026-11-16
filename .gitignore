@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.server/
+.cache/
+src/generated/
+public/event-images/
+playwright-report/
+test-results/
+*.local
+.env
+.env.*
+!.env.example
